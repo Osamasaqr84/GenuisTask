@@ -1,0 +1,105 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.noname.genuisplaza"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+dependencies {
+    configuration ->
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+        implementation 'com.android.support:appcompat-v7:28.0.0'
+        implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+        implementation 'com.android.support:support-v4:28.0.0'
+        implementation 'android.arch.lifecycle:extensions:1.1.1'
+        testImplementation 'junit:junit:4.12'
+        androidTestImplementation 'com.android.support.test:runner:1.0.2'
+        androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+        uiComponents(configuration)
+        customComponents(configuration)
+        archiectureComponents(configuration)
+        implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+
+}
+
+private static void uiComponents(configuration) {
+    def support_version = "28.0.0"
+    configuration.implementation "com.android.support:appcompat-v7:$support_version"
+    configuration.implementation "com.android.support:design:$support_version"
+    configuration.implementation "com.android.support:support-v4:$support_version"
+    configuration.implementation "com.android.support.constraint:constraint-layout:1.1.3"
+    configuration.implementation "com.android.support:recyclerview-v7:$support_version"
+    configuration.implementation "com.android.support:cardview-v7:$support_version"
+    configuration.implementation 'com.github.bumptech.glide:glide:4.2.0'
+    configuration.implementation 'jp.wasabeef:richeditor-android:1.2.2'
+    configuration.implementation 'com.airbnb.android:lottie:2.5.0-rc1'
+    configuration.implementation 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
+    configuration.implementation 'com.google.android:flexbox:1.0.0'
+    configuration.implementation 'br.com.simplepass:loading-button-android:1.14.0'
+    configuration.implementation "android.arch.lifecycle:extensions:1.1.1"
+    configuration.implementation 'com.devlomi.record-view:record-view:2.0.1'
+    configuration.implementation 'com.tuyenmonkey:mkloader:1.4.0'
+
+}
+
+
+private static void archiectureComponents(configuration) {
+    def retrofit_version = "2.4.0"
+    def binding_version = "1.1.1"
+    def stetho_version = "1.5.0"
+
+    configuration.implementation 'com.android.support:multidex:1.0.3'
+    configuration.implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    configuration.implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    configuration.implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+    configuration.implementation "android.arch.lifecycle:runtime:$binding_version"
+    configuration.implementation "android.arch.lifecycle:extensions:$binding_version"
+    configuration.annotationProcessor "android.arch.lifecycle:compiler:$binding_version"
+    configuration.implementation "com.facebook.stetho:stetho:$stetho_version"
+    configuration.implementation "com.facebook.stetho:stetho-okhttp3:$stetho_version"
+    configuration.implementation 'com.facebook.stetho:stetho-urlconnection:1.3.1'
+    configuration.implementation 'com.squareup.okhttp:okhttp:2.7.5'
+    configuration.implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    configuration.implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
+    configuration.implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    configuration.implementation 'android.arch.lifecycle:livedata:1.1.1'
+    configuration.implementation 'android.arch.persistence.room:runtime:1.1.1'
+    configuration.implementation 'android.arch.persistence.room:rxjava2:1.1.1'
+    configuration.annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+    /////dagger/////
+    configuration.implementation 'com.google.dagger:dagger:2.0'
+    configuration.implementation 'org.glassfish:javax.annotation:10.0-b28'
+    configuration.annotationProcessor 'com.google.dagger:dagger-compiler:2.0'
+
+}
+
+private static void customComponents(configuration) {
+
+    configuration.implementation 'de.hdodenhof:circleimageview:3.0.0'
+}

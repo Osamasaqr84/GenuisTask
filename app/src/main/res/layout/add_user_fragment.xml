@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.noname.genuisplaza.presentation.screens.adduser.AddUserFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/logo"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.5" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:hint="@string/name"
+                android:paddingStart="10dp"
+                android:drawablePadding="15dp"
+                android:paddingBottom="20dp"
+                android:textColorHint="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img"
+                app:layout_constraintWidth_percent="0.95" />
+
+
+            <EditText
+                android:id="@+id/job"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:layout_marginTop="15dp"
+                android:hint="@string/job"
+                android:inputType="textEmailAddress"
+                android:textColorHint="@color/black"
+                android:paddingStart="10dp"
+                android:drawablePadding="15dp"
+                android:paddingBottom="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/username"
+                app:layout_constraintWidth_percent="0.95" />
+
+            <TextView
+                android:id="@+id/add"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/add_background"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="18dp"
+                android:text="@string/register"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/job"
+                app:layout_constraintWidth_percent="0.65" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+
+    <FrameLayout
+        android:id="@+id/progress"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>
